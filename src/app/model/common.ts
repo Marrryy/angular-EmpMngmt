@@ -15,3 +15,24 @@ export class LoginModel {
 export class UserModel {
   username?: string;
 }
+
+
+
+export class Page {
+  pageSize: number;
+  totalElements: number;
+  totalPages: number;
+  pageNumber: number;
+  query?: string;
+  sortBy?: string;
+  sortDirection?: string;
+  matchPhrase: boolean;
+
+  constructor() {
+      this.pageSize = 10;
+      this.totalElements = 0;
+      this.totalPages = 0;
+      this.pageNumber = 0;
+      this.matchPhrase = false;
+  }
+}
