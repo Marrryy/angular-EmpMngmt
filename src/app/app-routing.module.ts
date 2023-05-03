@@ -15,18 +15,28 @@ const routes: Routes = [
   },
   { path: 'login', title: 'Login',  component: LoginComponent },
   { path: 'employee', title: 'Employee List', component: EmployeeComponent,
-    children: [
-      {
-        path: 'add',
-        title: 'Add Employee',
-        component: AddEmployeeComponent,
-      },
-      {
-        path: 'detail',
-        title: 'Detail Employee',
-        component: DetailEmpComponent,
-      },
-    ],
+    // children: [
+    //   {
+    //     path: 'add',
+    //     title: 'Add Employee',
+    //     component: AddEmployeeComponent,
+    //   },
+    //   {
+    //     path: 'detail/:id',
+    //     title: 'Detail Employee',
+    //     component: DetailEmpComponent,
+    //   },
+    // ],
+    canActivate: [AuthGuard]
+  },
+  { path: 'employee/add',
+    title: 'Add Employee',
+    component: AddEmployeeComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: 'employee/detail/:id',
+    title: 'Detail Employee',
+    component: DetailEmpComponent,
     canActivate: [AuthGuard]
   },
   { path: '**', component: EmployeeComponent }

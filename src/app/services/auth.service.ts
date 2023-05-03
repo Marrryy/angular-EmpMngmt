@@ -5,7 +5,7 @@ import { UserModel, LoginModel } from '../model/common';
   providedIn: 'root'
 })
 export class AuthService {
-
+  user : UserModel = new UserModel();
   getUserLoggedIn() {
       if (sessionStorage.getItem('IsLoggedin')) {
           return true;
@@ -13,6 +13,14 @@ export class AuthService {
       return false
   }
 
+  validateEmail(login: LoginModel) {
+    // It should be another service to manage login validation.
+    // Which calling the backend api, but currently hard code its ok to put in here.
+    if (login.username == "Mary" && login.userpwd == "TechTest" ) {
+        return true;
+    }
+    return false
+  }
   // LocalStorege
   getAuthToken(): UserModel {
       let authToken: UserModel = new UserModel();
@@ -20,6 +28,7 @@ export class AuthService {
         let usn = sessionStorage.getItem('Username');
         authToken.username = usn!=null?usn:"";
       }
+      this.user = authToken
 
       return authToken;
   }
@@ -28,11 +37,15 @@ export class AuthService {
   setAuthToken(authToken: LoginModel) {
       sessionStorage.setItem('Username', authToken.username);
       sessionStorage.setItem('IsLoggedin', 'true');
+
+      this.getAuthToken()
   }
 
   // clear token
   clearAuthToken() {
       sessionStorage.removeItem('Username');
       sessionStorage.removeItem('IsLoggedin');
+
+      this.user = new UserModel;
   }
 }

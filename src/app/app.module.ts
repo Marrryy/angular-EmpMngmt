@@ -8,6 +8,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add/add.component';
 import { DetailEmpComponent } from './employee/detail/detail.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

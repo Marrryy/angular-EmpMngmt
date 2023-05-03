@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { UserModel } from './model/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'empMngmt';
+  title = 'Employee Management';
+
+  constructor(
+    public router: Router,
+    public userService: AuthService,
+    ) {
+  }
+
+  ngOnInit(): void {
+    this.userService.getAuthToken()
+  }
+
+  logout(){
+    this.userService.clearAuthToken();
+    this.router.navigate(['/login']);
+  }
 }
