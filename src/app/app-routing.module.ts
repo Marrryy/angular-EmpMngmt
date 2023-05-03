@@ -1,7 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
-const routes: Routes = [];
+import { EmployeeComponent } from './employee/employee.component';
+import { AddEmployeeComponent } from './employee/add/add.component';
+import { DetailEmpComponent } from './employee/detail/detail.component';
+import { LoginComponent } from './login/login.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  { path: 'login', title: 'Login',  component: LoginComponent },
+  { path: 'employee', title: 'Employee List', component: EmployeeComponent,
+    children: [
+      {
+        path: 'add',
+        title: 'Add Employee',
+        component: AddEmployeeComponent,
+      },
+      {
+        path: 'detail',
+        title: 'Detail Employee',
+        component: DetailEmpComponent,
+      },
+    ],
+    canActivate: [AuthGuard]
+  },
+  { path: '**', component: EmployeeComponent }
+];;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
