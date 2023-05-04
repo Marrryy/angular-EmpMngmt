@@ -18,20 +18,32 @@ const ELEMENT_DATA: EmployeeModel[] = [
 })
 
 export class EmployeeService {
-  dataSource:any;
+  dataSource:EmployeeModel[];
   constructor() {
+    this.getAllEmployees();
+    // this.dataSource = ELEMENT_DATA;
+  }
+
+
+  //it should be all calling api
+  getAllEmployees(){
     this.dataSource = ELEMENT_DATA;
   }
 
+  getEmployee(username :string){
+    return this.dataSource.find(x => x.username == username);
+  }
+
   postEmployee(newEmplo : EmployeeModel){
+    this.dataSource.push(newEmplo);
+    return true;
+  }
+
+  updateEmployee(username :string, newEmplo : EmployeeModel){
 
   }
 
-  updateEmployee(id :number, newEmplo : EmployeeModel){
-
-  }
-
-  deleteEmployee(id :number){
+  deleteEmployee(username :string){
 
   }
 }

@@ -41,7 +41,7 @@ export class QuestionService {
 
       new BirthDateQuestion({
         key: 'birthDate',
-        label: 'birth Date',
+        label: 'Birth Date',
         type: 'date',
         required: true,
       }),

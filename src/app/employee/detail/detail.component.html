@@ -1,1 +1,33 @@
-<p>detail works!</p>
+<div *ngIf="employee">
+        <h2>Employee Detail</h2>
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <h3>{{employee.username}}</h3>
+                <p>
+                  First Name: {{employee.firstName}}
+                </p>
+                <p>
+                  Last Name:{{employee.lastName}}
+                </p>
+
+                <h4>Email</h4>
+                <span><a href="mailto:{{employee.email}}">{{employee.email}}</a></span>
+
+                <h4>Birth Date</h4>
+                <span>{{dateString(employee.birthDate)}}</span>
+
+                <h4>Basic Salary</h4>
+                <span>{{moneyDots(employee.basicSalary)}}</span>
+
+                <h4>Status</h4>
+                <span>{{employee.status}}</span>
+
+                <h4>Group</h4>
+                <span>{{employee.group}}</span>
+
+                <h4>Description</h4>
+                <span>{{employee.description}}</span>
+            </div>
+        </div>
+      </div>

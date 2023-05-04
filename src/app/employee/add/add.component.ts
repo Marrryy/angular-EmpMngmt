@@ -23,7 +23,10 @@ export class AddEmployeeComponent  {
   SubmitEmployee = (args: any): void => {
     //callback code here
     // console.log("args ", args as EmployeeModel)
-      this.employeeService.dataSource.push(args as EmployeeModel);
-      this.router.navigate(['/employee']);
+      let newEmp = args as EmployeeModel;
+      newEmp.birthDate = new Date(newEmp.birthDate);
+      if(this.employeeService.postEmployee(args as EmployeeModel)){
+        this.router.navigate(['/employee']);
+      }
   }
 }
