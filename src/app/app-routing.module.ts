@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth.guard';
 
-import { EmployeeComponent } from './employee/employee.component';
-import { AddEmployeeComponent } from './employee/add/add.component';
-import { DetailEmpComponent } from './employee/detail/detail.component';
-import { LoginComponent } from './login/login.component';
+import { EmployeeComponent } from './page/employee/employee.component';
+import { AddEmployeeComponent } from './page/employee/add/add.component';
+import { DetailEmpComponent } from './page/employee/detail/detail.component';
+import { LoginComponent } from './page/login/login.component';
 
 const routes: Routes = [
   {

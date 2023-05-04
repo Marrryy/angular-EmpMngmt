@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { EmployeeModel } from '../model/employee';
+import { EmployeeModel } from '../../model/employee';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { Page } from '../model/common';
-import { EmployeeService } from '../services/employee.service';
+import { Page } from '../../model/common';
+import { EmployeeService } from '../../services/employee.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
 import { filter } from 'rxjs';
-import { DataSourceService } from '../services/data-source.service';
+import { DataSourceService } from '../../services/data-source.service';
 
 @Component({
   selector: 'app-employee',
