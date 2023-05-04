@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DynamicFormQuestionComponent } from './form/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
