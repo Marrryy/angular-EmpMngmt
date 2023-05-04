@@ -1,0 +1,16 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-dynamic-form-question [question]="question" [form]="form"></app-dynamic-form-question>
+    </div>
+
+    <div class="form-row">
+      <!-- for back button -->
+      <!-- <a routerLink="..">Cancel</a> -->
+      <a class="btn" routerLink="/employee">Cancel</a>
+      <button type="submit" class="btn" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+</div>

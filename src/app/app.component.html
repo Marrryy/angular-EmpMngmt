@@ -1,19 +1,25 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <span>Employee Management</span>
+  <nav class="navbar navbar-expand-lg">
+    <span class="navbar-brand" >Employee Management</span>
     <div class="spacer"></div>
-    <nav>
-      <ul *ngIf="this.userService?.user?.username; else notLogin">
-        <li>Hello {{this.userService.user.username}}!</li>
-        <li><a routerLink="/employee" routerLinkActive="active" ariaCurrentWhenActive="page">Employee List</a></li>
-        <li><a routerLink="/employee/add" routerLinkActive="active" ariaCurrentWhenActive="page">Add Employee</a></li>
-        <li><a (click)="logout()" class="nav-link">Logout</a></li>
-      </ul>
-      <ng-template #notLogin>
-        <ul >
-          <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" *ngIf="this.userService?.user?.username; else notLogin">
+          <li class="nav-item"> <span class="nav-link">Hello {{this.userService.user.username}}!</span> </li>
+          <li class="nav-item"><a class="nav-link" routerLink="/employee" routerLinkActive="active" ariaCurrentWhenActive="page">Employee List</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/employee/add" routerLinkActive="active" ariaCurrentWhenActive="page">Add Employee</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
         </ul>
-      </ng-template>
+        <ng-template #notLogin>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
+          </ul>
+        </ng-template>
+      </div>
+
     </nav>
 </div>
 

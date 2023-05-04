@@ -1,0 +1,40 @@
+<div [formGroup]="form">
+  <label [attr.for]="question.key">{{question.label}}</label>
+
+  <div [ngSwitch]="question.controlType" class="form-group">
+
+    <input class="form-control" *ngSwitchCase="'textbox'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type" [max]="question.max ?? null" [min]="question.min ?? null">
+
+
+    <input class="form-control" *ngSwitchCase="'email'" [formControlName]="question.key"
+            [id]="question.key" type="email" email>
+
+
+    <input class="form-control" *ngSwitchCase="'birthdate'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type" max="{{date | date:'yyyy-MM-dd'}}">
+
+    <select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" >
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+    <!-- <mat-form-field *ngSwitchCase="'dropdown'"  class="example-full-width" appearance="fill">
+      <input type="text"
+             matInput
+             [id]="question.key"
+             [formControlName]="question.key"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let opt of filteredOptions | async" [value]="opt.key">
+          {{opt.value}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> -->
+
+  </div>
+  <div *ngIf="isTouch"
+  class="alert">
+
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is not valid</div>
+  </div>
+</div>

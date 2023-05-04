@@ -22,4 +22,16 @@ export class EmployeeService {
   constructor() {
     this.dataSource = ELEMENT_DATA;
   }
+
+  postEmployee(newEmplo : EmployeeModel){
+
+  }
+
+  updateEmployee(id :number, newEmplo : EmployeeModel){
+
+  }
+
+  deleteEmployee(id :number){
+
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeModel } from '../model/employee';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Page } from '../model/common';
 import { EmployeeService } from '../services/employee.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -28,6 +28,7 @@ export class EmployeeComponent implements OnInit{
   ngOnInit() {
     this.page.totalElements = this.employeeService.dataSource.length;
     this.refresh()
+    console.log(this.page)
   }
 
 
@@ -36,9 +37,12 @@ export class EmployeeComponent implements OnInit{
     const start = this.page.pageNumber * this.page.pageSize;
     const part = this.employeeService.dataSource.slice(start, end);
     this.dataSource.data = part;
+
+    console.log(this.page)
   }
 
-  pagination(paginator: MatPaginator) {
+  pagination(paginator: PageEvent) {
+    console.log(paginator)
     // this.currentPage = paginator.pageIndex;
     this.page.pageNumber = paginator.pageIndex;
     this.page.pageSize = paginator.pageSize;
@@ -62,8 +66,10 @@ export class EmployeeComponent implements OnInit{
       );
 
       this.employeeService.dataSource.push(newEmplo);
+
     }
     console.log(this.employeeService.dataSource)
+    this.page.totalElements = this.employeeService.dataSource.length;
     this.refresh()
   }
 

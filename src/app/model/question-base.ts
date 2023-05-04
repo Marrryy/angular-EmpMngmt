@@ -7,6 +7,8 @@ export class QuestionBase<T> {
   controlType: string;
   type: string;
   options: {key: string, value: string}[];
+  max?: number;
+  min?: number;
 
   constructor(options: {
       value?: T;
@@ -17,6 +19,9 @@ export class QuestionBase<T> {
       controlType?: string;
       type?: string;
       options?: {key: string, value: string}[];
+      max?: number;
+      min?: number;
+
     } = {}) {
     this.value = options.value;
     this.key = options.key || '';
@@ -26,5 +31,8 @@ export class QuestionBase<T> {
     this.controlType = options.controlType || '';
     this.type = options.type || '';
     this.options = options.options || [];
+    this.max = options.max;
+    this.min = options.min;
+
   }
 }

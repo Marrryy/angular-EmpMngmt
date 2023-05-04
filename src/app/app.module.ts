@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,8 +14,10 @@ import { EmployeeComponent } from './employee/employee.component';
 import { AddEmployeeComponent } from './employee/add/add.component';
 import { DetailEmpComponent } from './employee/detail/detail.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { DynamicFormQuestionComponent } from './form/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,8 @@ import { CommonModule } from '@angular/common';
     AddEmployeeComponent,
     DetailEmpComponent,
     LoginComponent,
+    DynamicFormQuestionComponent,
+    DynamicFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,12 +35,13 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
 
     MatTableModule,
     MatPaginatorModule,
-    // MatSortModule,
-    // MatTooltipModule,
-    // BsDatepickerModule
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

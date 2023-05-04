@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export class LoginModel {
   username: string;
   userpwd: string;
@@ -35,4 +37,10 @@ export class Page {
       this.pageNumber = 0;
       this.matchPhrase = false;
   }
+}
+
+
+export class filterDropdown {
+  key: string;
+  filteredOptions: Observable<any[]>;
 }
