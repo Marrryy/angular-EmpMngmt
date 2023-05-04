@@ -1,3 +1,5 @@
+@import '@angular/cdk/overlay-prebuilt.css'
+
 body
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
     font-size: 14px
@@ -217,3 +219,10 @@ select
 
 .form-control
   width: 60%
+
+.cdk-overlay-pane > div
+  background: white
+  border: 1px solid
+
+.mdc-line-ripple::before
+  border-bottom-width:0px !important

@@ -20,33 +20,26 @@ export class DynamicFormQuestionComponent {
   get isTouch() { return this.form.controls[this.question.key].invalid && (this.form.controls[this.question.key].dirty || this.form.controls[this.question.key].touched); }
   date = new Date;
 
-  // // filteredOptions: filterDropdown[];
-  // filteredOptions: Observable<any[]>;
+  // filteredOptions: filterDropdown[];
+  filteredOptions: Observable<any[]>;
 
-  // ngOnInit() {
-  //   // let currentFilterOptions =this.filteredOptions.find(x=>x.key  ==  this.question.key);
-  //   if(this.question?.controlType== "dropdown")
-  //     this.filteredOptions = this.form.controls[this.question.key].valueChanges.pipe(
-  //       startWith(''),
-  //       map(value => {
-  //         const name = typeof value === 'string' ? value : value?.value;
-  //         return name ? this._filter(name as string) : this.question.options.slice();
-  //       }),
-  //   );
-  // }
+  ngOnInit() {
+    // let currentFilterOptions =this.filteredOptions.find(x=>x.key  ==  this.question.key);
+    if(this.question?.controlType== "dropdown")
+      this.filteredOptions = this.form.controls[this.question.key].valueChanges.pipe(
+        startWith(''),
+        map(value => {
+          const name = typeof value === 'string' ? value : value?.value;
+          return name ? this._filter(name as string) : this.question.options.slice();
+        }),
+    );
+  }
 
-  // private _filter(name: string) {
-  //   const filterValue = name.toLowerCase();
+  private _filter(name: string) {
+    const filterValue = name.toLowerCase();
 
-  //   return this.question.options.filter(option => option.value.toLowerCase().includes(filterValue));
-  // }
-  // _filter(value: string) {
-  //   let arr =  this.question.options.filter(
-  //     (Dropdown) => Dropdown.value.toLowerCase().indexOf(value.toLowerCase()) === 0
-  //   );
+    return this.question.options.filter(option => option.value.toLowerCase().includes(filterValue));
+  }
 
-  //   return arr.length ? arr : [{ name: 'No Item found', code: 'null' }];
-
-  // }
 }
 

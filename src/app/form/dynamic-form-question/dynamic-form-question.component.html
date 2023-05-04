@@ -14,24 +14,23 @@
     <input class="form-control" *ngSwitchCase="'birthdate'" [formControlName]="question.key"
             [id]="question.key" [type]="question.type" max="{{date | date:'yyyy-MM-dd'}}">
 
-    <select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" >
+    <!-- <select class="form-control" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" >
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
-    </select>
+    </select> -->
 
-    <!-- <mat-form-field *ngSwitchCase="'dropdown'"  class="example-full-width" appearance="fill">
+    <mat-form-field *ngSwitchCase="'dropdown'" class="form-control" appearance="fill">
       <input type="text"
              matInput
              [id]="question.key"
              [formControlName]="question.key"
              [matAutocomplete]="auto">
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let opt of filteredOptions | async" [value]="opt.key">
+        <mat-option *ngFor="let opt of filteredOptions | async" [value]="opt.value">
           {{opt.value}}
         </mat-option>
       </mat-autocomplete>
-    </mat-form-field> -->
+    </mat-form-field>
 
-  </div>
   <div *ngIf="isTouch"
   class="alert">
 

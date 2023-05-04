@@ -6,6 +6,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {A11yModule} from '@angular/cdk/a11y';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { DynamicFormQuestionComponent } from './form/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,11 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule,
+    OverlayModule,
+    A11yModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
